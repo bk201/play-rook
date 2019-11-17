@@ -220,4 +220,8 @@ vagrant ssh k8s-2 -c "sudo rm -r /var/lib/rook"
 vagrant ssh k8s-3 -c "sudo rm -r /var/lib/rook"
 ```
 
+#  Projects to deploy Kubernetes for Rook Development
+
+- https://github.com/kubic-project/kubic-terraform-kvm
+- https://github.com/BlaineEXE/dev-rook-ceph
 
