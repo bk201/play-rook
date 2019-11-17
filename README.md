@@ -1,3 +1,6 @@
+
+Slide: https://docs.google.com/presentation/d/12CCdLm_Sr79VOOclIMtgBPWOZJ2DV3tx7JDc0bLfxag/edit?usp=sharing
+
 This guide provides information to
 * Install vagrant and vagrant-libvirt on Leap
 * Use kubespray to bring up a Kubernetes cluster with VMs
@@ -136,6 +139,11 @@ kubectl -n rook-ceph exec -it $(kubectl -n rook-ceph get pod -l "app=rook-ceph-t
 
 ceph -s 
 ceph osd dump
+
+# orchestrator commands
+ceph orchestrator host ls
+ceph orchestrator device ls
+ceph orchestrator service ls
 ```
 
 ## Connect to Ceph Dashboard
