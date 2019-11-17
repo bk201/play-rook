@@ -1,6 +1,8 @@
 
 Slide: https://docs.google.com/presentation/d/12CCdLm_Sr79VOOclIMtgBPWOZJ2DV3tx7JDc0bLfxag/edit?usp=sharing
 
+**NOTE**: Only test on OpenSUSE Leap 15.1
+
 This guide provides information to
 * Install vagrant and vagrant-libvirt on Leap
 * Use kubespray to bring up a Kubernetes cluster with VMs
