@@ -170,5 +170,44 @@ kubectl -n rook-ceph get secret rook-ceph-dashboard-password -o jsonpath="{['dat
  echo
 ```
 
+## Create storage class for RBD
+
+```
+kubectl create -f csi/rbd/storageclass-test.yaml
+
+# your should see a new pool on Dashboard -> Pools
+```
+
+## Claim a RBD volume in App
+
+```
+# in play-rook
+cd cluster/examples/kubernetes/ceph/
+kubectl create -f mysql.yaml
+kubectl create -f wordpress.yaml
+
+kubectl get pvc
+```
+
+Suppose to see:
+```
+NAME             STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS      AGE
+mysql-pv-claim   Bound    pvc-50fb8333-219d-4e12-b45e-3fb9a3b2cf04   20Gi       RWO            rook-ceph-block   8s
+wp-pv-claim      Bound    pvc-4a956fa3-1c8f-46fe-81c2-1cc734d20d45   20Gi       RWO            rook-ceph-block   5s
+```
+
+And two RBD images in Dashboard (Block --> Images).
+
+# Cleanup
+
+See: https://rook.io/docs/rook/master/ceph-teardown.html
+
+Remember to clean rook folder on VMs:
+```
+# in kubespray dir
+vagrant ssh k8s-1 -c "sudo rm -r /var/lib/rook"
+vagrant ssh k8s-2 -c "sudo rm -r /var/lib/rook"
+vagrant ssh k8s-3 -c "sudo rm -r /var/lib/rook"
+```
 
 
